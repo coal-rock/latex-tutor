@@ -10,7 +10,8 @@
 *« erm, achtually -- it's pronounced luhteque »*
 
 [Usage](#usage) •
-[Credit](#credit)
+[Credit](#credit) •
+[Demo](#demo) •
 </div>
 
 > [!WARNING]  
@@ -30,3 +31,5 @@ I would like to thank the following people (in order) (descending):
 - [Gordon Ramsay]("/branding/the-kitchen-nightmare.png")
 - [Ruby](https://github.com/engelhartrueben) - you kinda helped i guess
 
+## Demo
+https://github.com/coal-rock/latex-tutor/raw/refs/heads/typescript/branding/demo.mp4
