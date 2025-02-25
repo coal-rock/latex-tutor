@@ -1,8 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button, Card, Container, Group, Select, SimpleGrid, Text, TextInput, Title, } from '@mantine/core';
 import { Welcome } from '../components/Welcome/Welcome';
-import { MathJax, MathJaxContext } from 'better-react-mathjax';
-import Confetti from "react-confetti";
 import ToggleThemeModal from '@/components/ThemeToggleModal/ThemeToggleModal';
 import { Notebook } from 'tabler-icons-react';
 import { Math as MathLol } from 'tabler-icons-react';
@@ -22,7 +20,6 @@ export function HomePage() {
   }, [correct]);
 
   return (
-
     <>
       <ToggleThemeModal />
 
