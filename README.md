@@ -7,10 +7,11 @@
     
 **accelerate your knowledge of LaTeX**
 
-*« erm, achtually -- it's pronounced luhteque »*
+*« erm, achtually -- it's pronounced luhtẽque »*
 
 [Usage](#usage) •
-[Credit](#credit)
+[Credit](#credit) •
+[Demo](#demo)
 </div>
 
 > [!WARNING]  
@@ -27,6 +28,9 @@ this version before the rewrite built with Rust + Dioxus becomes available.
 I would like to thank the following people (in order) (descending):
 - [Donald Knuth](https://cs.stanford.edu/~knuth/) - the love of my live. shoutout fr. you a real one.
 - [Zoe](https://github.com/wynru) - you made the Hackathon amazing! thank you for showing up and helping as much as you did :\)
-- [Gordon Ramsay]("/branding/the-kitchen-nightmare.png")
+- [Gordon Ramsay]("/branding/the-kitchen-nightmare.jpg")
 - [Ruby](https://github.com/engelhartrueben) - you kinda helped i guess
+
+## Demo
+https://github.com/user-attachments/assets/a3d9dad8-8be6-400c-96c1-6f345b627a21
 
