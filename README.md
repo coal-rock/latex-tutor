@@ -3,8 +3,8 @@
     <img src="/branding/logo.png" alt="LaTeX TuToR logo (I wonder if that capitalization fucks with screen readers)"/>
 </div>
 
-# LaTeX TuToR
-** a tool for accelerating your knowledge of LaTeX**
+**a tool for accelerating your knowledge of LaTeX**
+
 *the original Hack-A-Damien version*
 
 [Usage](#usage) •
