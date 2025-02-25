@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
-import { Container, Button, Modal, Switch, Text, useMantineColorScheme } from "@mantine/core";
-import { useMantineTheme } from "@mantine/core";
-import { Moon, Sun } from "tabler-icons-react"; // Optional: icons for dark/light theme
-
+import { Switch, useMantineColorScheme } from "@mantine/core";
 export default function ToggleThemeModal() {
-  const [darkTheme, setDarkTheme] = useState(true); // State to manage theme
-  const { colorScheme, setColorScheme } = useMantineColorScheme(); // Access current color scheme and setter
+  const [darkTheme, setDarkTheme] = useState(true);
+  const { colorScheme, setColorScheme } = useMantineColorScheme();
 
   useEffect(() => {
     setTimeout(() => setColorScheme(darkTheme ? "dark" : "light"), 100);
-  }, [darkTheme]); //
+  }, [darkTheme]);
 
   return (
     <Switch
@@ -17,8 +14,8 @@ export default function ToggleThemeModal() {
       onChange={(event) => setDarkTheme(event.currentTarget.checked)}
       size="lg"
       style={{ width: 0 }}
-      color="yellow" // Optional: adjust color
-      label={darkTheme ? "Dark" : "Light"} // Switch label based on theme
+      color="yellow"
+      label={darkTheme ? "Dark" : "Light"}
       p="lg"
     />
   );
