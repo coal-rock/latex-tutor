@@ -1,7 +1,8 @@
 <div align="center">
 <div>
-    <img src="/assets/logo.png" alt="LaTeX TuToR logo (I wonder if that capitalization fucks with screen readers)"/>
+    <img src="/branding/logo.png" alt="LaTeX TuToR logo (I wonder if that capitalization fucks with screen readers)"/>
 </div>
+
 # LaTeX TuToR
 ** a tool for accelerating your knowledge of LaTeX**
 *the original Hack-A-Damien version*
@@ -9,7 +10,7 @@
 [Usage](#usage) •
 [Credit](#credit)
 </div>
-t
+
 > [!WARNING]  
 > This project was made over the course of ~9 consecutive hours while severely sleep deprived and irritable.
 I took it upon myself to do a few minor refactors prior to publishing, however I strongly advise against using
