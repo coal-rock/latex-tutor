@@ -2,8 +2,8 @@
 <div>
     <img src="/branding/logo.png" alt="LaTeX TuToR logo (I wonder if that capitalization fucks with screen readers)"/>
 </div>
-    
-# LaTeX TuTor
+
+<br>
     
 **accelerate your knowledge of LaTeX**
 
