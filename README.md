@@ -28,7 +28,7 @@ this version before the rewrite built with Rust + Dioxus becomes available.
 I would like to thank the following people (in order) (descending):
 - [Donald Knuth](https://cs.stanford.edu/~knuth/) - the love of my live. shoutout fr. you a real one.
 - [Zoe](https://github.com/wynru) - you made the Hackathon amazing! thank you for showing up and helping as much as you did :\)
-- [Gordon Ramsay]("/branding/the-kitchen-nightmare.jpg")
+- [Gordon Ramsay]("branding/the-kitchen-nightmare.jpg")
 - [Ruby](https://github.com/engelhartrueben) - you kinda helped i guess
 
 ## Demo
