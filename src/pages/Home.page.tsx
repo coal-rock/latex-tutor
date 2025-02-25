@@ -23,6 +23,7 @@ export function HomePage() {
     <>
       <ToggleThemeModal />
 
+
       <div style={{ position: 'absolute', top: 20, right: 20 }}>
         <Select
           value={difficulty} // set diff
