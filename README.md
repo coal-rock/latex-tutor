@@ -41,8 +41,8 @@ This includes the following:
 - Apple desktops/laptops running Safari
 - Apple phones running *any browser*
 
-Additionally, this version of the application lacks reactivity, and thus should not be ran on mobile devices.
+Additionally, this version of LaTeX TuToR lacks reactivity, and thus should not be ran on mobile devices.
 
-## Dem
+## Demo
 https://github.com/user-attachments/assets/a3d9dad8-8be6-400c-96c1-6f345b627a21
 
