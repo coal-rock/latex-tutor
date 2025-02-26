@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Card, Container, Group, SimpleGrid, Text, TextInput } from '@mantine/core';
-import { MathJax, MathJaxContext } from 'better-react-mathjax';
+import { MathJax } from 'better-react-mathjax';
 import Confetti from "react-confetti";
 
 export type Difficulty = 'Easy' | 'Medium' | 'Hard';
@@ -115,38 +115,32 @@ export function Problem(props: ProblemProps) {
       <Container>
         <Card withBorder radius="md" padding="12px">
           <Group justify='center' m="-20">
-            <Text>
-              <h1>
-                Enter the correct LaTeX for the expression below:
-              </h1>
-            </Text>
+            <h1>
+              Enter the correct LaTeX for the expression below:
+            </h1>
           </Group>
           <Group justify='center' >
             <SimpleGrid cols={1} spacing="xs" verticalSpacing="xs" p="0" m="0" mih={"250"} mah={"250"}>
-              <MathJaxContext>
-                <MathJax inline={true}>
-                  <h1 ref={requestedExpression} style={{ marginBottom: '-58px' }}>
-                    {"$$" + randomExpression + "$$"}
-                  </h1>
-                </MathJax>
+              <MathJax dynamic={true} inline={true}>
+                <h1 ref={requestedExpression} style={{ marginBottom: '-58px' }}>
+                  {"$$" + randomExpression + "$$"}
+                </h1>
+              </MathJax>
 
-                <MathJax color='red'>
+              <MathJax color='red' dynamic={true}>
 
-                  {showConfetti && <Confetti />}
-                  <h1 ref={givenExpression} color='red' style={{ marginTop: '0px' }}>
-                    {isEqual === null ? "$$\\color{red}" + latexInput + "$$" : isEqual ? "$$\\color{green}" + latexInput + "$$" : "$$\\color{red}" + latexInput + "$$"}
-                  </h1>
-                </MathJax>
-              </MathJaxContext>
+                {showConfetti && <Confetti />}
+                <h1 ref={givenExpression} color='red' style={{ marginTop: '0px' }}>
+                  {isEqual === null ? "$$\\color{red}" + latexInput + "$$" : isEqual ? "$$\\color{green}" + latexInput + "$$" : "$$\\color{red}" + latexInput + "$$"}
+                </h1>
+              </MathJax>
             </SimpleGrid>
           </Group>
-          <MathJaxContext>
-            <MathJax>
-              <TextInput ref={textInput} autoFocus={true} size="xl" value={latexInput} onChange={(event) => {
-                setLatexInput(event.currentTarget.value)
-              }} disabled={isEqual !== null && isEqual} />
-            </MathJax>
-          </MathJaxContext>
+          <MathJax dynamic={true}>
+            <TextInput ref={textInput} autoFocus={true} size="xl" value={latexInput} onChange={(event) => {
+              setLatexInput(event.currentTarget.value)
+            }} disabled={isEqual !== null && isEqual} />
+          </MathJax>
         </Card>
       </Container >
     </>
