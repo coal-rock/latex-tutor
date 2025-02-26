@@ -11,6 +11,7 @@
 
 [Usage](#usage) •
 [Credit](#credit) •
+[Known Issues](#known-issues) •
 [Demo](#demo)
 </div>
 
@@ -28,11 +29,20 @@ this version before the rewrite built with Rust + Dioxus becomes available.
 I would like to thank the following people (in order) (descending):
 - [Donald Knuth](https://cs.stanford.edu/~knuth/) - the love of my live. shoutout fr. you a real one.
 - [Zoe](https://github.com/wynru) - you made the Hackathon amazing! thank you for showing up and helping as much as you did :\)
-- T - you were the absolute goat and you hard carried on the morale department, I wish we could've used your art
+- T - you were the absolute goat and you hard carried on the morale department, i wish we could've used your art
 - Keith - i had no clue what you were talking about for the duration of the event
 - [Gordon Ramsay](branding/the-kitchen-nightmare.jpg)
 - [Ruby](https://github.com/engelhartrueben) - you kinda helped, i guess
 
-## Demo
+## Known Issues
+Due to issues regarding WebKit and our current implementation of checking the equality of expressions, browsers powered by WebKit are completely non-functioning.
+
+This includes the following:
+- Apple desktops/laptops running Safari
+- Apple phones running *any browser*
+
+Additionally, this version of the application lacks reactivity, and thus should not be ran on mobile devices.
+
+## Dem
 https://github.com/user-attachments/assets/a3d9dad8-8be6-400c-96c1-6f345b627a21
 
