@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { Card, Container, Group, SimpleGrid, Text, TextInput } from '@mantine/core';
-import { MathJax } from 'better-react-mathjax';
+import { Button, Card, Container, Group, HoverCard, Paper, SimpleGrid, Text, TextInput, useMantineTheme } from '@mantine/core';
 import Confetti from "react-confetti";
+import katex, { KatexOptions } from 'katex';
+import 'katex/dist/katex.min.css';
 
 export type Difficulty = 'Easy' | 'Medium' | 'Hard';
 
@@ -63,41 +64,61 @@ export function Problem(props: ProblemProps) {
     ]
   }
 
-  const requestedExpression = useRef<HTMLHeadingElement>(null);
-  const givenExpression = useRef<HTMLHeadingElement>(null);
+  const requestedExpression = useRef<HTMLElement>(null);
+  const givenExpression = useRef<HTMLElement>(null);
+
   const textInput = useRef<HTMLInputElement>(null);
+
   const [isEqual, setIsEqual] = useState(false);
   const [latexInput, setLatexInput] = useState("");
   const [showConfetti, setShowConfetti] = useState(false);
   const [randomExpression, setRandomExpression] = useState("");
 
+  const [isError, setIsError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
-    // delay to wait for mathjax but i guess we don't need it 
-    setTimeout(() => {
-      if (requestedExpression.current && givenExpression.current) {
-        console.log(requestedExpression.current.outerText);
-        const equal = requestedExpression.current.outerText === givenExpression.current.outerText
-        setIsEqual(equal);
-        props.onChange(equal);
+    let options: KatexOptions = {
+      output: "mathml",
+      displayMode: false,
+    };
 
-        if (equal && !showConfetti) {
-          setShowConfetti(true);
+    try {
+      katex.render(latexInput, givenExpression.current!, options);
+      givenExpression.current!.querySelector("span > math> semantics > annotation")!.remove();
+      setIsError(false);
+    } catch (error) {
+      givenExpression.current!.innerHTML = "";
+      setIsError(true);
+      setErrorMsg(JSON.parse(JSON.stringify(error))["rawMessage"]);
+    }
+
+    if (requestedExpression.current && givenExpression.current) {
+      const equal = requestedExpression.current!.innerHTML === givenExpression.current!.innerHTML;
+
+      console.log(requestedExpression.current!.innerHTML);
+      console.log(givenExpression.current!.innerHTML);
+
+      console.log(equal)
+      setIsEqual(equal);
+      props.onChange(equal);
+
+      if (equal && !showConfetti) {
+        setShowConfetti(true);
+
+        setTimeout(() => {
+          const expressions = problems[props.difficulty];
+          const randomIndex = Math.floor(Math.random() * expressions.length);
+          setShowConfetti(false);
+          setLatexInput("");
+          setRandomExpression(expressions[randomIndex])
 
           setTimeout(() => {
-            const expressions = problems[props.difficulty];
-            const randomIndex = Math.floor(Math.random() * expressions.length);
-            setShowConfetti(false);
-            setLatexInput("");
-            setRandomExpression(expressions[randomIndex])
-
-            setTimeout(() => {
-              textInput.current?.focus();
-            }, 100);
-          }, 2000);
-        }
+            textInput.current?.focus();
+          }, 100);
+        }, 2000);
       }
-    }, 0); // lol
+    }
   }, [latexInput]);
 
   useEffect(() => {
@@ -110,6 +131,16 @@ export function Problem(props: ProblemProps) {
 
   }, [props.difficulty])
 
+  useEffect(() => {
+    let options: KatexOptions = {
+      output: "mathml",
+      displayMode: false,
+    };
+
+    katex.render(randomExpression, requestedExpression.current!, options);
+    requestedExpression.current!.querySelector("span > math> semantics > annotation")!.remove();
+  }, [randomExpression])
+
   return (
     <>
       <Container>
@@ -121,26 +152,36 @@ export function Problem(props: ProblemProps) {
           </Group>
           <Group justify='center' >
             <SimpleGrid cols={1} spacing="xs" verticalSpacing="xs" p="0" m="0" mih={"250"} mah={"250"}>
-              <MathJax dynamic={true} inline={true}>
-                <h1 ref={requestedExpression} style={{ marginBottom: '-58px' }}>
-                  {"$$" + randomExpression + "$$"}
-                </h1>
-              </MathJax>
+              {showConfetti && <Confetti />}
+              <div ref={requestedExpression as React.RefObject<HTMLDivElement>} />
+              {
+                isError ?
+                  <HoverCard width={280} shadow="md">
+                    <HoverCard.Target justify-content="center">
+                      <Text size="sm" ta="center">
+                        {"error"}
+                      </Text>
+                    </HoverCard.Target>
+                    <HoverCard.Dropdown>
+                      <Text size="sm">
+                        {errorMsg}
+                      </Text>
+                    </HoverCard.Dropdown>
+                  </HoverCard>
+                  :
+                  <></>
+              }
 
-              <MathJax color='red' dynamic={true}>
-
-                {showConfetti && <Confetti />}
-                <h1 ref={givenExpression} color='red' style={{ marginTop: '0px' }}>
-                  {isEqual === null ? "$$\\color{red}" + latexInput + "$$" : isEqual ? "$$\\color{green}" + latexInput + "$$" : "$$\\color{red}" + latexInput + "$$"}
-                </h1>
-              </MathJax>
+              <span className="katex">
+                <span className="katex-mathml">{"The KaTeX stylesheet is not loaded!"}</span>
+                <span className="katex-version rule">{"KaTeX stylesheet version: "}</span>
+              </span>
+              <span className="katex-mathml" ref={givenExpression as React.RefObject<HTMLDivElement>} />
             </SimpleGrid>
           </Group>
-          <MathJax dynamic={true}>
-            <TextInput ref={textInput} autoFocus={true} size="xl" value={latexInput} onChange={(event) => {
-              setLatexInput(event.currentTarget.value)
-            }} disabled={isEqual !== null && isEqual} />
-          </MathJax>
+          <TextInput ref={textInput} autoFocus={true} size="xl" value={latexInput} onChange={(event) => {
+            setLatexInput(event.currentTarget.value)
+          }} disabled={isEqual !== null && isEqual} />
         </Card>
       </Container >
     </>

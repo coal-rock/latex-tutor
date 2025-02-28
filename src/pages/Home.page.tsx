@@ -22,7 +22,10 @@ export function HomePage() {
   return (
     <>
       <ToggleThemeModal />
-
+      <span className="katex">
+        <span className="katex-mathml">{"The KaTeX stylesheet is not loaded!"}</span>
+        <span className="katex-version rule">{"KaTeX stylesheet version: "}</span>
+      </span>
 
       <div style={{ position: 'absolute', top: 20, right: 20 }}>
         <Select

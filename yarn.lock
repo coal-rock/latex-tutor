@@ -1043,6 +1043,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/katex@npm:^0.16.7":
+  version: 0.16.7
+  resolution: "@types/katex@npm:0.16.7"
+  checksum: 10c0/68dcb9f68a90513ec78ca0196a142e15c2a2c270b1520d752bafd47a99207115085a64087b50140359017d7e9c870b3c68e7e4d36668c9e348a9ef0c48919b5a
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:^22.10.7":
   version: 22.13.5
   resolution: "@types/node@npm:22.13.5"
@@ -1811,6 +1818,13 @@ __metadata:
   version: 13.1.0
   resolution: "commander@npm:13.1.0"
   checksum: 10c0/7b8c5544bba704fbe84b7cab2e043df8586d5c114a4c5b607f83ae5060708940ed0b5bd5838cf8ce27539cde265c1cbd59ce3c8c6b017ed3eec8943e3a415164
+  languageName: node
+  linkType: hard
+
+"commander@npm:^8.3.0":
+  version: 8.3.0
+  resolution: "commander@npm:8.3.0"
+  checksum: 10c0/8b043bb8322ea1c39664a1598a95e0495bfe4ca2fad0d84a92d7d1d8d213e2a155b441d2470c8e08de7c4a28cf2bc6e169211c49e1b21d9f7edc6ae4d9356060
   languageName: node
   linkType: hard
 
@@ -3706,6 +3720,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"katex@npm:^0.16.21":
+  version: 0.16.21
+  resolution: "katex@npm:0.16.21"
+  dependencies:
+    commander: "npm:^8.3.0"
+  bin:
+    katex: cli.js
+  checksum: 10c0/e2e4139ba72a13f2393308fbb2b4c5511611a19a40a6e39d956cf775e553af3517dbfd0a54477faaf401c923e4654e32296347846b8ff15dfa579f88ff8579bb
+  languageName: node
+  linkType: hard
+
 "keyv@npm:^4.5.4":
   version: 4.5.4
   resolution: "keyv@npm:4.5.4"
@@ -3891,6 +3916,7 @@ __metadata:
     "@mantine/hooks": "npm:7.17.0"
     "@testing-library/jest-dom": "npm:^6.6.3"
     "@types/gh-pages": "npm:^6"
+    "@types/katex": "npm:^0.16.7"
     "@types/node": "npm:^22.10.7"
     "@types/react": "npm:^19.0.7"
     "@types/react-dom": "npm:^19.0.3"
@@ -3903,6 +3929,8 @@ __metadata:
     gh-pages: "npm:^6.3.0"
     identity-obj-proxy: "npm:^3.0.0"
     jsdom: "npm:^26.0.0"
+    katex: "npm:^0.16.21"
+    normalize.css: "npm:^8.0.1"
     postcss: "npm:^8.5.1"
     postcss-preset-mantine: "npm:1.17.0"
     postcss-simple-vars: "npm:^7.0.1"
@@ -4200,6 +4228,13 @@ __metadata:
   version: 3.0.0
   resolution: "normalize-path@npm:3.0.0"
   checksum: 10c0/e008c8142bcc335b5e38cf0d63cfd39d6cf2d97480af9abdbe9a439221fd4d749763bab492a8ee708ce7a194bb00c9da6d0a115018672310850489137b3da046
+  languageName: node
+  linkType: hard
+
+"normalize.css@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "normalize.css@npm:8.0.1"
+  checksum: 10c0/4ddf56d1af5ca755fa5e692e718316d8758ecb792aa96e1ad206824b5810a043763d681d6f7697d46573515f5e9690038b4c91a95c1997567128815545fb8cd7
   languageName: node
   linkType: hard
 
